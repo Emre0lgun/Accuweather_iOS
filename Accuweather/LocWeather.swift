@@ -1,12 +1,11 @@
-
 import Foundation
 
-struct LocationsWeather: Codable {
+struct LocWeather: Codable {
     let version: Int
     let key, type: String
     let rank: Int
     let localizedName, englishName : String
-    let country: Country
+    let country: getCountry
 
     enum CodingKeys: String, CodingKey {
         case version = "Version"
@@ -19,7 +18,7 @@ struct LocationsWeather: Codable {
     }
 }
 
-struct Country: Codable {
+struct getCountry: Codable {
     let id, localizedName, englishName: String
 
     enum CodingKeys: String, CodingKey {

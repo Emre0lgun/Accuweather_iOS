@@ -2,7 +2,7 @@
 //  AccuweatherUITestsLaunchTests.swift
 //  AccuweatherUITests
 //
-//  Created by Emre OLGUN on 19.02.2022.
+//  Created by Emre OLGUN on 23.02.2022.
 //
 
 import XCTest
