@@ -2,8 +2,8 @@
 import Foundation
 
 struct Weather: Codable {
-    let version: Int
-    let key, type: String
+    let version: Int?
+    let key, type: String?
     let rank: Int
     let localizedName, englishName, primaryPostalCode: String
     let region, country: Country

@@ -1,8 +1,8 @@
 import Foundation
 
 struct LocWeather: Codable {
-    let version: Int
-    let key, type: String
+    let version: Int?
+    let key, type: String?
     let rank: Int
     let localizedName, englishName : String
     let country: getCountry

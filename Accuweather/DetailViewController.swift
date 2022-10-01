@@ -18,7 +18,7 @@ class DetailViewController: UITableViewController {
         print(cityKey)
         
         self.title = cityName
-        guard let theURL = URL(string: "https://dataservice.accuweather.com/forecasts/v1/daily/5day/\(cityKey)?apikey=hqDtGy4xZpiX5ZDerkv86sFGnkn1detM") else { print ("Error"); return }
+        guard let theURL = URL(string: "https://dataservice.accuweather.com/forecasts/v1/daily/5day/\(cityKey)?apikey=sgKEFAV8p3fa6D12Q5pH1700KutVzwSA") else { print ("Error"); return }
         forecastAPI(url: theURL)
     }
 

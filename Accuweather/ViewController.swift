@@ -39,7 +39,7 @@ class ViewController: UITableViewController, UISearchBarDelegate, CLLocationMana
             lat = String(format: "%.1f", location.coordinate.latitude)
             long = String(format: "%.1f", location.coordinate.longitude)
             if lat.count != 0 && long.count != 0 {
-                guard let theURL = URL(string: "https://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=hqDtGy4xZpiX5ZDerkv86sFGnkn1detM&q=\(lat),\(long)") else { print ("Error"); return }
+                guard let theURL = URL(string: "https://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=sgKEFAV8p3fa6D12Q5pH1700KutVzwSA&q=\(lat),\(long)") else { print ("Error"); return }
                 
                 fetchFromLoc(url: theURL)
             }
@@ -67,7 +67,7 @@ class ViewController: UITableViewController, UISearchBarDelegate, CLLocationMana
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "detailscreen") as? DetailViewController
         if weatherArray.count != 0 {
-            vc!.cityKey = weatherArray[indexPath.row].key
+            vc!.cityKey = weatherArray[indexPath.row].key!
             vc!.cityName = weatherArray[indexPath.row].localizedName
         } else if locCityName.count != 0 {
             vc!.cityKey = locCityKey[indexPath.row]
@@ -85,7 +85,7 @@ class ViewController: UITableViewController, UISearchBarDelegate, CLLocationMana
             locCityName = []
             locCityKey = []
             if(lat.count != 0 && long.count != 0) {
-                guard let theURL = URL(string: "https://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=hqDtGy4xZpiX5ZDerkv86sFGnkn1detM&q=\(lat),\(long)") else { print ("Error"); return }
+                guard let theURL = URL(string: "https://dataservice.accuweather.com/locations/v1/cities/geoposition/search?apikey=sgKEFAV8p3fa6D12Q5pH1700KutVzwSA&q=\(lat),\(long)") else { print ("Error"); return }
                 
                 fetchFromLoc(url: theURL)
             }
@@ -94,7 +94,7 @@ class ViewController: UITableViewController, UISearchBarDelegate, CLLocationMana
             weatherArray = []
             locCityName = []
             locCityKey = []
-            guard let theURL = URL(string: "http://dataservice.accuweather.com/locations/v1/cities/search?apikey=hqDtGy4xZpiX5ZDerkv86sFGnkn1detM&q=\(searchText)") else { print ("Error"); return }
+            guard let theURL = URL(string: "http://dataservice.accuweather.com/locations/v1/cities/search?apikey=sgKEFAV8p3fa6D12Q5pH1700KutVzwSA&q=\(searchText)") else { print ("Error"); return }
             fetchAPI(url: theURL)
         }
     }
@@ -138,7 +138,7 @@ class ViewController: UITableViewController, UISearchBarDelegate, CLLocationMana
                 self!.locCityKey = []
                 self!.locCityName = []
                 self!.locCityName.append(locweatherdata.localizedName)
-                self!.locCityKey.append(locweatherdata.key)
+                self!.locCityKey.append(locweatherdata.key!)
                 DispatchQueue.main.async {
                     if self!.locCityName.count != 0 {
                         self?.tableView.reloadData()
